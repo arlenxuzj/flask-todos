@@ -1,0 +1,9 @@
+{% extends "layout.html" %} {% block content %}
+<h1>Todo {{todo.id}}: {{todo.title}}</h1>
+<div>{{'Completed' if todo.completed else 'Not completed'}}</div>
+<button onclick="toggleCompleted('{{todo|json_dump}}')">
+  {{'Mark as Incomplete' if todo.completed else 'Mark as Complete'}}
+</button>
+&nbsp;
+<button onclick="handleBack()">Back</button>
+{% endblock content %}

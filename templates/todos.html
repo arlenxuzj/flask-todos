@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block content %}
+<div style="display: flex; padding: 8px; align-items: center">
+  <img width="50" height="50" src="static/images/todos.png" alt="todos" />
+  &nbsp;
+  <h1>Todos Page</h1>
+</div>
+<hr />
+<ul>
+  {% for todo in todos %}
+  <li>
+    <div>
+      {{todo.id}} - {{todo.title}} &nbsp;
+      <a href="todos/{{todo.id}}">View</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
