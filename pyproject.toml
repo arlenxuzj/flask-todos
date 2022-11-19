@@ -6,7 +6,7 @@ authors = ["Zhen Jun Xu <me@arlenx.dev>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.7"
 flask = "^2.2.2"
 python-dotenv = "^0.21.0"
 psycopg2 = "^2.9.5"
