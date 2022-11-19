@@ -5,6 +5,7 @@ import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 load_dotenv()
 
@@ -29,6 +30,9 @@ app = Flask(__name__,
             static_folder='../static',
             template_folder='../templates')
 app.config['SECRET_KEY'] = FLASK_SECRET_KEY
+
+app.wsgi_app = ProxyFix(  # type: ignore
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 
 # Connect to the database
